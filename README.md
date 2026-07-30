@@ -17,10 +17,7 @@ You will need two pieces of information from Telegram to make this work.
 * It will instantly reply with your `Id` (a string of numbers like `5457083826`). 
 * Save this number. This is your `TELEGRAM_CHAT_ID`.
 
-### Step 2: Configure the Script
-Open `monitor_usdc.py` and replace `WALLET_ADDRESS` with the Solana wallet you want to track. The script will automatically figure out the correct USDC token account for that wallet!
-
-### Step 3: Deploy 24/7 (Railway.app)
+### Step 2: Deploy 24/7 (Railway.app)
 The easiest way to run this without keeping your laptop open is using Railway. 
 
 1. Create a free account on [Railway](https://railway.app/).
