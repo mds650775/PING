@@ -18,17 +18,22 @@ You will need two pieces of information from Telegram to make this work.
 * Save this number. This is your `TELEGRAM_CHAT_ID`.
 
 ### Step 2: Configure the Script
-If you are running this locally on your computer, open `monitor_usdc.py` and replace `WALLET_ADDRESS` with the Solana wallet you want to track.
+Open `monitor_usdc.py` and replace `WALLET_ADDRESS` with the Solana wallet you want to track. The script will automatically figure out the correct USDC token account for that wallet!
 
 ### Step 3: Deploy 24/7 (Railway.app)
 The easiest way to run this without keeping your laptop open is using Railway. 
 
-1. Create a free account on [Railway.app](https://railway.app/).
-2. Click **New Project** -> **Deploy from GitHub repo** and select this repository.
-3. Once it deploys, go to your Project's **Variables** tab.
-4. Add the following variables:
+1. Create a free account on [Railway](https://railway.app/).
+2. Click **New Project** -> **Deploy from GitHub repo** and select your repository.
+3. Once the project is created, click on your Service and go to the **Variables** tab. Add the following:
    * `TELEGRAM_BOT_TOKEN` = (Paste the token from BotFather)
    * `TELEGRAM_CHAT_ID` = (Paste the ID from userinfobot)
-5. Go to the **Settings** tab, scroll down to **Start Command**, and type: `python monitor_usdc.py`
+4. **⚠️ CRITICAL STEP:** Go to the **Settings** tab in your Railway service, scroll down to the **Start Command** field, and type exactly: 
+   `python monitor_usdc.py`
+5. Click Save or let it auto-deploy. The service will build, and you will see "USDC ATA Monitor Started..." in your deployment logs!
 
-The service will restart automatically, and you are good to go!
+---
+
+### 🚨 Troubleshooting
+**Error: "No start command detected / railpack process exited with an error"**
+If you see a red failed build log on Railway, it means you forgot Step 3.4. Just go to **Settings**, find **Start Command**, type `python monitor_usdc.py`, and it will redeploy automatically!
